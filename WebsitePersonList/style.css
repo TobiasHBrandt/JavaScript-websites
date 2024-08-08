@@ -1,15 +1,54 @@
 body{
     font-family: Verdana;
     text-align: center;
+    color: #333;
+    background-color: #e3e9ff;
 }
-#myButton{
-    font-size: 3em;
-    padding: 5px 25px;
+#wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+.invitation {
+    background: #fff;
     border-radius: 5px;
+    box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    max-width: 800px;
 }
-#myLabel{
-    font-size: 3em;
+#header {
+    background: #70b3ff;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 5px 5px 0 0;
+  }
+.main {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    max-width: 800px;
 }
-.myLabels{
-    font-size: 3em;
+#inviteForm input {
+    border: 1px solid #eee;
+    padding: 10px 100px 10px 10px;
+    width: 50%;
+    height: 10px;
+    color: #333;
+}
+#inviteForm button {
+    padding: 0 1em;
+    background: #70b3ff;
+    color: #fff;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    
+    right: 5px;
+    top: 5px;
+    height: 40px;
+    transition: opacity 0.3s linear;
+}
+#inviteForm button:hover {
+    opacity: 0.7;
 }

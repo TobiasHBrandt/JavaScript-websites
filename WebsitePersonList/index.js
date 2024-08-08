@@ -9,7 +9,7 @@ function createLi() {
     span.textContent = input.value;
 
     const label = document.createElement("label");
-    label.textContent = "confirmed";
+    label.textContent = " confirmed";
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     const editBtn = document.createElement("button");
@@ -31,5 +31,21 @@ form.addEventListener("submit", (event) => {
 
     const li = createLi();
 
-    ul.appendChild(li);
+    if (input.value === "") {
+        alert("Enter the name please")
+    }
+    else{
+        ul.appendChild(li);
+    }
+})
+
+ul.addEventListener("change", (event) => {
+    const checkbox = event.target;
+    constchecked = checkbox.checked;
+    const li = checkbox.parentNode.parentNode;
+    if (checked) {
+        li.className = "responded"
+    } else {
+        className = "";
+    }
 })
