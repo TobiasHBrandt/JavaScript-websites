@@ -26,6 +26,8 @@ function createLi() {
     return li;
 }
 
+// Submit action
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -37,15 +39,45 @@ form.addEventListener("submit", (event) => {
     else{
         ul.appendChild(li);
     }
-})
+});
+
+// Checkbox
 
 ul.addEventListener("change", (event) => {
     const checkbox = event.target;
-    constchecked = checkbox.checked;
+    const checked = checkbox.checked;
     const li = checkbox.parentNode.parentNode;
     if (checked) {
         li.className = "responded"
     } else {
-        className = "";
+        li.className = "";
     }
-})
+});
+
+// Button action
+
+ul.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+        const button = event.target;
+        const li = button.parentNode;
+        const ul = li.parentNode;
+        if (button.textContent === "remove") {
+            ul.removeChild(li);
+        } else if (button.textContent === "edit") {
+            const span = li.firstElementChild;
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = span.textContent;
+            li.insertBefore(input, span);
+            li.removeChild(span);
+            button.textContent = "save";
+        } else if (button.textContent === "save") {
+            const input = li.firstElementChild;
+            const span = document.createElement("span");
+            span.textContent = input.value;
+            li.insertBefore(span, input);
+            li.removeChild(input);
+            button.textContent = "edit";
+        }
+    }
+});
