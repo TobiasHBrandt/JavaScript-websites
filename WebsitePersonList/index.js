@@ -2,6 +2,7 @@
 const form = document.querySelector("#inviteForm");
 const input = document.querySelector("input");
 const ul = document.querySelector("#invitedList");
+const main = document.querySelector(".main")
 
 function createLi() {
     const li = document.createElement("li");
@@ -78,6 +79,41 @@ ul.addEventListener("click", (event) => {
             li.insertBefore(span, input);
             li.removeChild(input);
             button.textContent = "edit";
+        }
+    }
+});
+
+
+// hide the list of persons
+
+const div = document.createElement("div");
+div.className = "showHide";
+const filterLabel = document.createElement("label");
+filterLabel.textContent = "Hide those who have not responded";
+const filterCheckbox = document.createElement("input");
+filterCheckbox.type = "checkbox";
+
+div.appendChild(filterLabel);
+filterLabel.appendChild(filterCheckbox);
+main.insertBefore(div, ul);
+
+filterCheckbox.addEventListener("change", (event) => {
+    const isChecked = event.target.checked;
+    const lis = ul.children;
+
+    if (isChecked) {
+        for (var i = 0; i < lis.length; i++) {
+            var li = lis[i];
+            if (li.className === "responded") {
+                li.style.display = "";
+            } else {
+                li.style.display = "none";
+            }
+        }
+    } else {
+        for (var i = 0; i < lis.length; i++) {
+            var li = lis[i];
+            li.style.display = "";
         }
     }
 });
